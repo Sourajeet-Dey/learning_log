@@ -1,0 +1,255 @@
+/* **************************** 🆂🆃🆈🅻🅴🆂 **************************** */
+
+/* **************************** Fonts **************************** */
+
+@import url(../fonts/FuturaPT/FuturaPTFont.css);
+
+/* ************************ Site Settings ************************ */
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* ******************** Responsive Font Size ******************** */
+
+html {
+    font-size: 62.5%;
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* *********************** Body Settings *********************** */
+
+body {
+    font-family: var(--mainfont);
+    background: var(--primarywhite);
+}
+
+/* *********************** Root Variables *********************** */
+
+:root {
+    /* Default Colors */
+    --primaryblack: #012b51;
+    --primarywhite: #ffffff;
+    --primarygrey: #6f7472;
+    --primarycolor: #ffd600;
+    --secondarycolor: #04c27f;
+
+    /* Default Fonts */
+    --mainfont: "Futura PT", sans-serif;
+}
+
+/* ************************* Scroll Bar ************************* */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primaryblack);
+    border-radius: 4px;
+}
+
+/* ************************* Selection ************************* */
+
+::selection {
+    color: var(--primarywhite);
+    background: var(--primaryblack);
+}
+
+/* ********************** User Select None ********************** */
+
+img,
+object,
+.noselect {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+button.btn:active,
+button.btn:focus,
+a.btn:active,
+a.btn:focus {
+    box-shadow: none;
+}
+
+/* ************************* Navbar ************************* */
+
+header {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background: var(--primarywhite);
+    z-index: 10;
+}
+
+.navbar {
+    margin: 3rem auto 1rem;
+    padding: 1.5rem 2rem;
+    background: var(--primaryblack);
+    border-radius: 4px;
+    border: none;
+}
+
+.navbar .navbar-toggler {
+    color: var(--primarywhite);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar .navbar-brand img {
+    width: 17rem;
+    height: auto;
+}
+
+.navbar .navbar-nav .navbar-text {
+    position: relative;
+    margin: auto 0.5rem;
+    font: 450 2rem/1.4 var(--mainfont);
+    color: var(--primarywhite);
+    text-align: center;
+}
+
+.navbar .navbar-nav .navbar-text svg {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.navbar .navbar-nav .nav-link {
+    margin: auto 1rem;
+    padding: 1rem 2rem;
+    font: 450 1.7rem var(--mainfont);
+    color: var(--primarywhite);
+    background: var(--secondarycolor);
+    letter-spacing: 0.4px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar .navbar-nav .nav-link.new-btn {
+    padding: 1rem;
+    letter-spacing: normal;
+    color: var(--primaryblack);
+    background: var(--primarywhite);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    background: var(--primarycolor);
+    color: var(--primaryblack);
+}
+
+/* ************************* Main Element ************************* */
+
+main {
+    margin: 12rem auto 5rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 2rem;
+    }
+    .navbar {
+        width: 95%;
+    }
+    .navbar .navbar-nav .navbar-text {
+        margin: 1.5rem auto;
+        padding: 0.5rem 1rem;
+        background: rgba(235, 196, 1, 0.05);
+        border: 2px solid rgba(235, 196, 1, 0.8);
+        border-radius: 4px;
+        width: 100%;
+        text-align: left;
+    }
+    .navbar .navbar-nav .navbar-text svg {
+        display: none;
+    }
+    .navbar .navbar-nav .nav-link {
+        margin: 0.5rem auto;
+    }
+}
+
+/* ************************* Preloader ************************* */
+
+div.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primarywhite);
+    z-index: 9999;
+    transition: all 0.3s ease-in-out;
+}
+
+div.preloader .loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 171, 112, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.preloader .loader .loader-inner {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3.5px solid rgba(3, 171, 112, 0.15);
+}
+
+div.preloader .loader .loader-inner:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border: 3.5px solid transparent;
+    border-top-color: rgba(3, 171, 112, 0.95);
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ************************* Styles End ************************* */

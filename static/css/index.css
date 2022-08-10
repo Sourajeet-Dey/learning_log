@@ -1,0 +1,142 @@
+/* **************************** Index Page **************************** */
+
+body {
+    background: var(--primarycolor) url(../img/home-pattern.png) repeat fixed;
+}
+
+header {
+    background: transparent;
+}
+
+.navbar {
+    background: var(--primarywhite);
+}
+
+.navbar .navbar-toggler {
+    color: var(--primaryblack);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-nav .navbar-text {
+    color: var(--primaryblack);
+}
+
+div.banner-content,
+div.banner-image {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+div.banner-content h5 {
+    margin: 1rem 0;
+    font: 400 2.6rem/1.2 var(--mainfont);
+    color: var(--primaryblack);
+    letter-spacing: 1.5px;
+}
+
+div.banner-content h5 span {
+    font-weight: 450;
+}
+
+div.banner-content h1 {
+    margin: 1rem 0;
+    font: 450 7rem/1 var(--mainfont);
+    color: var(--primaryblack);
+}
+
+div.banner-content h1 span {
+    font-weight: 500;
+}
+
+div.banner-content p {
+    margin: 1rem 0;
+    font: 400 2.4rem/1.4 var(--mainfont);
+    color: var(--primaryblack);
+}
+
+div.banner-content a.btn {
+    position: relative;
+    margin: 1rem 0;
+    padding: 1.5rem 3rem;
+    font: 450 1.8rem var(--mainfont);
+    color: var(--primarywhite);
+    background: var(--primaryblack);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2.5px solid var(--primaryblack);
+    border-radius: 6px;
+    letter-spacing: 0.4px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+div.banner-content p.link-text {
+    margin: 1rem 0;
+    font: 450 2rem/1.4 var(--mainfont);
+    color: var(--primaryblack);
+}
+
+div.banner-content p.link-text a {
+    position: relative;
+    margin: 0 0.2rem;
+    font-size: 2.1rem;
+    color: var(--primaryblack);
+    text-decoration: none;
+    user-select: none;
+}
+
+div.banner-content p.link-text a svg {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+div.banner-image img {
+    margin: auto;
+    width: 70rem;
+    height: auto;
+    transform: translate(-20rem, 10rem);
+}
+
+/* **************************** Responsive Medias **************************** */
+
+@media (max-width: 1240px) {
+    div.banner-image img {
+        width: 60rem;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        margin: 16rem auto 5rem;
+    }
+    div.banner-content h1 {
+        font-size: 5rem;
+    }
+    div.banner-content p {
+        font-size: 2.2rem;
+    }
+    div.banner-image img {
+        width: 50rem;
+    }
+}
+
+@media (max-width: 768px) {
+    div.banner-image img {
+        margin: 3rem auto;
+        width: 100%;
+        transform: translate(0, 0);
+    }
+}
+
+@media (max-width: 392px) {
+    div.banner-content h1 {
+        font-size: 4rem;
+    }
+}
+
+/* ******************************* Styles End ******************************* */
