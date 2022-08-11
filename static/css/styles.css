@@ -46,6 +46,7 @@ body {
     --primarygrey: #6f7472;
     --primarycolor: #ffd600;
     --secondarycolor: #04c27f;
+    --dangercolor: #ff0033;
 
     /* Default Fonts */
     --mainfont: "Futura PT", sans-serif;
@@ -147,6 +148,10 @@ header {
     letter-spacing: 0.4px;
     border-radius: 4px;
     transition: all 0.2s ease-in-out;
+}
+
+.navbar .navbar-nav .nav-link.logout-btn {
+    background: var(--dangercolor);
 }
 
 .navbar .navbar-nav .nav-link.new-btn {
