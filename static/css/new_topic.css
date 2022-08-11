@@ -78,6 +78,12 @@ div.topics_banner form .topics_header button:hover {
     background: var(--primarycolor);
 }
 
+div.topics_banner form .topics_header button:focus,
+div.topics_banner form .topics_header button:active {
+    color: var(--primaryblack);
+    background: rgba(240, 197, 43, 1);
+}
+
 div.topics_banner form .topics_header button span {
     font: 450 1.8rem var(--mainfont);
 }

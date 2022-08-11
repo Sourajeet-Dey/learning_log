@@ -104,7 +104,9 @@ div.authentication_form form button {
     transition: all 0.2s ease-in-out;
 }
 
-div.authentication_form form button:not(.close):hover {
+div.authentication_form form button:not(.close):hover,
+div.authentication_form form button:not(.close):focus,
+div.authentication_form form button:not(.close):active {
     background: var(--primaryblack);
     border: 2px solid var(--primaryblack);
     transform: translateY(-2px);
@@ -215,7 +217,8 @@ div.authentication_form p a::after {
     transition: transform 0.3s ease-in-out;
 }
 
-div.authentication_form p a:hover:after {
+div.authentication_form p a:hover:after,
+div.authentication_form p a:active:after {
     transform: scaleX(1);
     transform-origin: left center;
 }

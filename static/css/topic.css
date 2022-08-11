@@ -77,6 +77,11 @@ div.topics_banner .topics_header a:hover {
     background: var(--primarycolor);
 }
 
+div.topics_banner .topics_header a:active {
+    color: var(--primaryblack);
+    background: rgba(240, 197, 43, 1);
+}
+
 div.topics_banner .topics_header a span {
     font: 450 1.7rem var(--mainfont);
 }
@@ -165,9 +170,11 @@ div.topics_banner .topics_body .card a::after {
     transition: transform 0.3s ease-in-out;
 }
 
+div.topics_banner .topics_body .card a:active,
 div.topics_banner .topics_body .card a:hover {
     background: rgba(4, 194, 127, 0.08);
 }
+div.topics_banner .topics_body .card a:active:after,
 div.topics_banner .topics_body .card a:hover:after {
     transform: scaleX(1);
     transform-origin: left center;

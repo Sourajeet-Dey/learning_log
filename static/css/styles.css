@@ -166,6 +166,21 @@ header {
     color: var(--primaryblack);
 }
 
+/* Navbar Active State */
+
+.navbar .navbar-nav .nav-link:active {
+    background: rgba(240, 197, 43, 1);
+}
+.navbar .navbar-nav .nav-link.new-btn:hover,
+.navbar .navbar-nav .nav-link.new-btn:active {
+    background: rgba(235, 232, 232, 1);
+}
+.navbar .navbar-nav .nav-link.logout-btn:hover,
+.navbar .navbar-nav .nav-link.logout-btn:active {
+    color: var(--primarywhite);
+    background: rgba(210, 0, 42, 1);
+}
+
 /* ************************* Main Element ************************* */
 
 main {

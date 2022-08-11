@@ -79,6 +79,7 @@ div.topics_banner form .topics_header h2::after {
     transition: transform 0.3s ease-in-out;
 }
 
+div.topics_banner form .topics_header h2:active:after,
 div.topics_banner form .topics_header h2:hover:after {
     transform: scaleX(1);
     transform-origin: left center;
@@ -101,6 +102,12 @@ div.topics_banner form .topics_header button {
 div.topics_banner form .topics_header button:hover {
     color: var(--primaryblack);
     background: var(--primarycolor);
+}
+
+div.topics_banner form .topics_header button:focus,
+div.topics_banner form .topics_header button:active {
+    color: var(--primaryblack);
+    background: rgba(240, 197, 43, 1);
 }
 
 div.topics_banner form .topics_header button span {

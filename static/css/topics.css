@@ -81,6 +81,11 @@ div.topics_banner .topics_header a:hover {
     background: var(--primarycolor);
 }
 
+div.topics_banner .topics_header a:active {
+    color: var(--primaryblack);
+    background: rgba(240, 197, 43, 1);
+}
+
 div.topics_banner .topics_header a span {
     font: 450 1.7rem var(--mainfont);
 }
@@ -138,9 +143,11 @@ div.topics_banner ul li a::before {
     transition: all 0.15s ease-in-out;
 }
 
+div.topics_banner ul li a:active,
 div.topics_banner ul li a:hover {
     background: rgba(1, 43, 81, 0.08);
 }
+div.topics_banner ul li a:active:before,
 div.topics_banner ul li a:hover:before {
     width: 8px;
 }

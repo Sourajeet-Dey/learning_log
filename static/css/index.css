@@ -69,7 +69,12 @@ div.banner-content a.btn {
     border-radius: 6px;
     letter-spacing: 0.4px;
     text-align: center;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+div.banner-content a.btn:hover,
+div.banner-content a.btn:active {
+    border: 2.5px solid var(--primarywhite);
 }
 
 div.banner-content p.link-text {
