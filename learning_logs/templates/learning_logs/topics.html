@@ -35,6 +35,7 @@
         </li>
       {% empty %}
         <li>
+          <img src="{% static 'img/empty-folder.svg' %}" class="d-block align-top" alt="Empty"/>
           <span class="empty">No topics have been added yet.</span>
         </li>
       {% endfor %}

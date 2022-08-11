@@ -90,9 +90,15 @@ div.topics_banner .topics_body {
     padding: 0.5rem 0;
 }
 
+div.topics_banner .topics_body img {
+    margin: 2rem auto;
+    width: 8rem;
+    height: auto;
+}
+
 div.topics_banner .topics_body span.empty {
     display: block;
-    margin: 1rem 0 2rem;
+    margin: 2rem 0;
     font: 450 2.5rem/1.4 var(--mainfont);
     color: var(--primarygrey);
     letter-spacing: 0.2px;

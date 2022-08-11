@@ -53,6 +53,7 @@
           </div>
         </div>
       {% empty %}
+        <img src="{% static 'img/empty-folder.svg' %}" class="d-block align-top" alt="Empty"/>
         <span class="empty">There are no entries for this topic yet.</span>
       {% endfor %}
     </div>

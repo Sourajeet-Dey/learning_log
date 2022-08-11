@@ -96,9 +96,15 @@ div.topics_banner ul.topics_body {
     list-style: none;
 }
 
+div.topics_banner ul li img {
+    margin: 2rem auto;
+    width: 8rem;
+    height: auto;
+}
+
 div.topics_banner ul li span.empty {
     display: block;
-    margin: 1rem 0;
+    margin: 2rem 0 0;
     font: 450 2.5rem/1.4 var(--mainfont);
     color: var(--primarygrey);
     letter-spacing: 0.2px;
@@ -110,7 +116,7 @@ div.topics_banner ul li a {
     display: block;
     margin: 1rem auto;
     padding: 0.8rem;
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     font: 450 2rem/1.4 var(--mainfont);
     color: var(--primaryblack);
     text-align: left;
@@ -126,17 +132,17 @@ div.topics_banner ul li a::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 4px;
     height: 100%;
     background: rgba(1, 43, 81, 0.8);
-    transition: all 0.1s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 
 div.topics_banner ul li a:hover {
     background: rgba(1, 43, 81, 0.08);
 }
 div.topics_banner ul li a:hover:before {
-    width: 5px;
+    width: 8px;
 }
 
 /* **************************** Responsive Medias **************************** */
