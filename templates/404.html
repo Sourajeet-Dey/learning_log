@@ -1,36 +1,9 @@
 {% extends "learning_logs/base.html" %}
-{% load static %}
 
-{% block title %}Error 404 | Learning Log{% endblock title %}
+{% block page_header %}
+  <h2>Error: 404</h2>
+{% endblock page_header%}
 
-{% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/error.css' %}" />
-{% endblock stylesheet %}
-
-{% block navbarlogo %}
-  <img
-    src="{% static 'img/logo-light.svg' %}"
-    class="d-inline-block align-top"
-    alt="Logo"
-  />
-{% endblock navbarlogo %}
-
-{% block navbarbtntext %}
-  <a class="nav-link" href="{% url 'learning_logs:index' %}">
-    Home
-  </a>
-{% endblock navbarbtntext %}
-
-{% block page_content %}
-
-  <div class="error_banner">
-    <img
-      src="{% static 'img/error.svg' %}"
-      class="d-inline-block align-top"
-      alt="Error"
-    />
-    <h2>Opps! <span>Error 404</span></h2>
-    <p>The item you requested is not available.</p>
-  </div>
-
-{% endblock page_content%}
+{% block content %}
+  <p>The item you requested is not available.</p>
+{% endblock content %}

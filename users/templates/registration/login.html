@@ -1,55 +1,27 @@
 {% extends "learning_logs/base.html" %}
 {% load bootstrap4 %}
-{% load static %}
 
-{% block title %}Login | Learning Log{% endblock title %}
+{% block page_header %}
 
-{% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-{% endblock stylesheet %}
+  <h2>Log in to your account</h2>
 
-{% block navbarlogo %}
-  <img
-    src="{% static 'img/logo-light.svg' %}"
-    class="d-inline-block align-top"
-    alt="Logo"
-  />
-{% endblock navbarlogo %}
+{% endblock page_header %}
 
-{% block navbarbtntext %}
-  <a class="nav-link" href="{% url 'learning_logs:index' %}">
-    Home
-  </a>
-{% endblock navbarbtntext %}
+{% block content %}
 
-{% block page_content %}
+  {% if form.errors %}
+    <p>Your username or password didn't match. Please try again.</p>
+  {% endif %}
 
-  <div class="authentication_form">
-    <h2><span>Login</span> to Your Account</h2>
+  <form class="form" action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button class="btn btn-primary" name="submit">Log in</button>
+    {% endbuttons %}
 
-    {% if form.errors %}
-      <p class="errortext">Your username or password didn't match. Please try again.</p>
-    {% endif %}
+    <input type="hidden" name="next"
+      value="{% url 'learning_logs:index' %}">
+  </form>
 
-    <form class="form" action="{% url 'users:login' %}" method="post">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      {% buttons %}
-      <button class="btn" name="submit">Log In</button>
-      {% endbuttons %}
-
-      <input type="hidden" name="next" value="{% url 'learning_logs:index' %}">
-    </form>
-
-    <hr/>
-    <p>
-      Don’t have an account? 
-      <a href="{% url 'users:register' %}" class="link" role="button">
-        Sign Up
-      </a>
-    </p>
-  </div>
-
-  <div class="bg-pattern"></div>
-
-{% endblock page_content %}
+{% endblock content %}
