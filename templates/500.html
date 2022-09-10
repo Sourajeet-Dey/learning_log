@@ -1,9 +1,36 @@
 {% extends "learning_logs/base.html" %}
+{% load static %}
 
-{% block page_header %}
-  <h2>Error: 500</h2>
-{% endblock page_header%}
+{% block title %}Error 500 | Learning Log{% endblock title %}
 
-{% block content %}
-  <p>There has been an internal error.</p>
-{% endblock content %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/error.css' %}" />
+{% endblock stylesheet %}
+
+{% block navbarlogo %}
+  <img
+    src="{% static 'img/logo-light.svg' %}"
+    class="d-inline-block align-top"
+    alt="Logo"
+  />
+{% endblock navbarlogo %}
+
+{% block navbarbtntext %}
+  <a class="nav-link" href="{% url 'learning_logs:index' %}">
+    Home
+  </a>
+{% endblock navbarbtntext %}
+
+{% block page_content %}
+
+  <div class="error_banner">
+    <img
+      src="{% static 'img/error.svg' %}"
+      class="d-inline-block align-top"
+      alt="Error"
+    />
+    <h2>Opps! <span>Error 500</span></h2>
+    <p>There has been an internal error.</p>
+  </div>
+
+{% endblock page_content%}
