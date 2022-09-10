@@ -7,10 +7,11 @@ class TopicForm(forms.ModelForm):
         model = Topic
         fields = ['text']
         labels = {'text': ''}
+        widgets = {'text': forms.TextInput(attrs={'placeholder': 'Type here...'})}
 
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
         fields = ['text']
-        labels = {'text': 'Entry:'}
-        widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+        labels = {'text': ''}
+        widgets = {'text': forms.Textarea(attrs={'placeholder': 'Start typing/writing here...', 'cols': 100,   'rows': 10})}
