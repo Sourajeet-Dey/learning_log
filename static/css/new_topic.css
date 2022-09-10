@@ -1,0 +1,153 @@
+/* **************************** New Topic Page **************************** */
+
+main {
+    margin: 6rem auto;
+    padding: 2rem;
+    z-index: 1;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+div.bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primarywhite) url(../img/line-pattern.svg);
+    z-index: -1;
+}
+
+div.topics_banner {
+    position: relative;
+    margin: 6rem auto;
+    padding: 2rem;
+    width: 100%;
+    height: auto;
+    background: var(--primarywhite);
+    border: 2px solid rgba(111, 116, 114, 0.1);
+    border-radius: 4px;
+}
+
+div.topics_banner form {
+    position: relative;
+    margin: 1rem auto;
+    z-index: 1;
+}
+
+div.topics_banner form .topics_header {
+    position: relative;
+    margin: auto;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.topics_banner form .topics_header h2 {
+    margin: 1rem 0;
+    font: 450 4rem/0.8 var(--mainfont);
+    color: var(--secondarycolor);
+    letter-spacing: -0.8px;
+    text-align: left;
+}
+
+div.topics_banner form .topics_header h2 span {
+    font-weight: 500;
+    color: var(--primaryblack);
+}
+
+div.topics_banner form .topics_header button {
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    color: var(--primarywhite);
+    background: var(--primaryblack);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 10rem;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+div.topics_banner form .topics_header button:hover {
+    color: var(--primaryblack);
+    background: var(--primarycolor);
+}
+
+div.topics_banner form .topics_header button:focus,
+div.topics_banner form .topics_header button:active {
+    color: var(--primaryblack);
+    background: rgba(240, 197, 43, 1);
+}
+
+div.topics_banner form .topics_header button span {
+    font: 450 1.8rem var(--mainfont);
+}
+div.topics_banner form .topics_header button svg {
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+div.topics_banner form p {
+    margin: 1rem 0 0;
+    font: 450 2.2rem/1.2 var(--mainfont);
+    color: var(--primaryblack);
+    text-align: left;
+}
+
+div.topics_banner form input {
+    display: block;
+    width: 100%;
+    margin: 3rem 0;
+    padding: 1rem 1.5rem;
+    font: 450 2rem/1.4 var(--mainfont);
+    color: var(--primaryblack);
+    background: rgba(4, 194, 127, 0.05);
+    border: 2.5px solid rgba(4, 194, 127, 0.45);
+    border-radius: 6px;
+    text-align: left;
+    letter-spacing: 0.2px;
+    box-shadow: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+div.topics_banner form input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+div.topics_banner form input:focus {
+    border: 2.5px solid rgba(4, 194, 127, 0.65);
+}
+
+/* **************************** Responsive Medias **************************** */
+
+@media (max-width: 576px) {
+    main {
+        padding: 2rem 1rem;
+    }
+    div.topics_banner {
+        padding: 2rem 1rem;
+    }
+    div.topics_banner form .topics_header {
+        flex-wrap: wrap;
+    }
+    div.topics_banner form .topics_header h2 {
+        font-size: 3.5rem;
+    }
+    div.topics_banner form .topics_header button span {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) {
+    div.topics_banner form .topics_header button svg {
+        display: none;
+    }
+}
+
+/* ******************************* Styles End ******************************* */
