@@ -1,0 +1,229 @@
+/* **************************** Each Topic Page **************************** */
+
+main {
+    margin: 6rem auto;
+    padding: 2rem;
+    z-index: 1;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+div.bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primarywhite) url(../img/line-pattern.svg);
+    z-index: -1;
+}
+
+div.topics_banner {
+    position: relative;
+    margin: 6rem auto;
+    padding: 2rem;
+    padding-bottom: 0 !important;
+    width: 100%;
+    height: auto;
+    background: var(--primarywhite);
+    border: 2px solid rgba(111, 116, 114, 0.1);
+    border-radius: 4px;
+}
+
+div.topics_banner .topics_header {
+    position: relative;
+    margin: auto;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.topics_banner .topics_header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+div.topics_banner .topics_header h2 {
+    margin: 1rem 0;
+    font: 450 3.5rem/1.4 var(--mainfont);
+    color: var(--primaryblack);
+    letter-spacing: -0.4px;
+    text-align: left;
+}
+
+div.topics_banner .topics_header a {
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    color: var(--primarywhite);
+    background: var(--primaryblack);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+div.topics_banner .topics_header a:hover {
+    color: var(--primaryblack);
+    background: var(--primarycolor);
+}
+
+div.topics_banner .topics_header a:active {
+    color: var(--primaryblack);
+    background: rgba(240, 197, 43, 1);
+}
+
+div.topics_banner .topics_header a span {
+    font: 450 1.7rem var(--mainfont);
+}
+div.topics_banner .topics_header a svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+div.topics_banner .topics_body {
+    margin: 2rem 0 1rem;
+    padding: 0.5rem 0;
+}
+
+div.topics_banner .topics_body img {
+    margin: 2rem auto;
+    width: 8rem;
+    height: auto;
+}
+
+div.topics_banner .topics_body span.empty {
+    display: block;
+    margin: 2rem 0;
+    font: 450 2.5rem/1.4 var(--mainfont);
+    color: var(--primarygrey);
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+div.topics_banner .topics_body .card {
+    margin: auto;
+    margin-bottom: 3rem;
+    background: var(--primarywhite);
+    border: 2px solid rgba(1, 43, 81, 0.1);
+    border-radius: 4px;
+}
+
+div.topics_banner .topics_body .card .card-header {
+    margin: 0;
+    padding: 1rem 1.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(1, 43, 81, 0.05);
+    border-bottom: 2px solid rgba(1, 43, 81, 0.1);
+}
+
+div.topics_banner .topics_body .card h6 {
+    margin: 0.5rem 0;
+    font: 450 1.8rem/1.4 var(--mainfont);
+    color: var(--primaryblack);
+    letter-spacing: 0.2px;
+    text-align: left;
+}
+
+div.topics_banner .topics_body .card p {
+    margin: 0.5rem 0;
+    font: 400 1.9rem/1.5 var(--mainfont);
+    color: var(--primaryblack);
+    letter-spacing: 0.2px;
+    text-align: justify;
+}
+
+div.topics_banner .topics_body .card a {
+    position: relative;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.8rem;
+    color: var(--secondarycolor);
+    background: rgba(4, 194, 127, 0.05);
+    text-decoration: none;
+    border-radius: 4px;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+}
+
+div.topics_banner .topics_body .card a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    border-radius: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.3s ease-in-out;
+}
+
+div.topics_banner .topics_body .card a:active,
+div.topics_banner .topics_body .card a:hover {
+    background: rgba(4, 194, 127, 0.08);
+}
+div.topics_banner .topics_body .card a:active:after,
+div.topics_banner .topics_body .card a:hover:after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+div.topics_banner .topics_body .card a span {
+    font: 450 2rem/1.4 var(--mainfont);
+    letter-spacing: 0.4px;
+}
+div.topics_banner .topics_body .card a svg {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+/* **************************** Responsive Medias **************************** */
+
+@media (max-width: 576px) {
+    main {
+        padding: 2rem 1rem;
+    }
+    div.topics_banner {
+        padding: 2rem 1rem;
+    }
+    div.topics_banner .topics_header {
+        flex-wrap: wrap;
+    }
+    div.topics_banner .topics_header h2 {
+        line-height: 1;
+    }
+    div.topics_banner .topics_header::after {
+        bottom: -5px;
+    }
+    div.topics_banner .topics_body .card p {
+        line-height: 1.4;
+    }
+    div.topics_banner .topics_body .card a::after {
+        height: 1.5px;
+    }
+    div.topics_banner .topics_header a span,
+    div.topics_banner .topics_body .card a span {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) {
+    div.topics_banner .topics_header a svg,
+    div.topics_banner .topics_body .card a svg {
+        display: none;
+    }
+}
+
+/* ******************************* Styles End ******************************* */

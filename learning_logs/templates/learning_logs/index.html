@@ -1,19 +1,64 @@
 {% extends "learning_logs/base.html" %}
+{% load static %}
 
-{% block page_header %}
-  <div class="jumbotron">
-    <h1 class="display-3">Track your learning</h1>
+{% block title %}Learning Log{% endblock title %}
 
-    <p class="lead">
-      Make your own Learning Log, and keep a list of the topics you're learning about. Whenever you learn something new about a topic, make an entry summarizing what you've learned.
-    </p>
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock stylesheet %}
 
-    {% if user.is_authenticated %}
-      <a href="{% url 'learning_logs:topics' %}" class="btn btn-lg btn-primary" role="button">Go to Topics &raquo;</a> or,
-      <a href="{% url 'users:logout' %}" class="btn btn-lg btn-primary" role="button">Log out &raquo;</a>
-    {% else %}
-      <a href="{% url 'users:register' %}" class="btn btn-lg btn-primary" role="button">Register &raquo;</a> or,
-      <a href="{% url 'users:login' %}" class="btn btn-lg btn-primary" role="button">Log in &raquo;</a>
-    {% endif %}
+{% block navbarlogo %}
+  <img
+    src="{% static 'img/logo-dark.svg' %}"
+    class="d-inline-block align-top"
+    alt="Logo"
+  />
+{% endblock navbarlogo %}
+
+{% block navbarbtntext %}
+  <a class="nav-link" href="{% url 'users:register' %}">
+    Get Started
+  </a>
+{% endblock navbarbtntext %}
+
+{% block page_content %}
+  <div class="row">
+    <div class="banner-content col-md-7">
+
+      {% if user.is_authenticated %}
+      <h5>Welcome <span>{{ user.username }}</span></h5>
+      {% endif %}
+
+      <h1>Track your <span>learning</span></h1>
+
+      <p>
+        Make your own Learning Log, and keep a list of the topics you're learning about. Whenever you learn something new about a topic, make an entry summarizing what you've learned.
+      </p>
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'learning_logs:topics' %}" class="btn" role="button">
+          Go to Topics
+        </a>
+      {% else %}
+        <a href="{% url 'users:login' %}" class="btn" role="button">
+          Log In
+        </a>
+        <p class="link-text">
+          Are you new here?
+          <a href="{% url 'users:register' %}" class="link" role="button">
+            Register Now!
+            <svg width="208" height="11" viewBox="0 0 208 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.90002 10.1C72.2 10.6 135.6 10.7 198.9 10.5C200.8 10.5 200.8 7.49998 198.9 7.49998C135.6 7.79998 72.2 7.69998 8.90002 7.09998C6.90002 7.09998 6.90002 10.1 8.90002 10.1Z" fill="currentColor"></path>
+              <path d="M1.90002 3.79999C69.9 3.79999 137.9 4.09999 205.9 4.89999C207.8 4.89999 207.8 1.89999 205.9 1.89999C137.9 1.19999 69.9 0.799988 1.90002 0.799988C-0.0999756 0.799988 -0.0999756 3.79999 1.90002 3.79999Z" fill="currentColor"></path>
+            </svg>
+          </a>
+        </p>
+      {% endif %}
+    
+    </div>
+
+    <div class="banner-image col-md-5">
+      <img src="{% static 'img/banner-img.svg' %}" alt="Learning Logs Banner" />
+    </div>
   </div>
-{% endblock page_header %}
+{% endblock page_content %}

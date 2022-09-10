@@ -1,28 +1,64 @@
 {% extends "learning_logs/base.html" %}
+{% load static %}
 
-{% block page_header %}
-  <h3>{{ topic }}</h3>
-{% endblock page_header%}
+{% block title %}{{ topic }} | Topic{% endblock title %}
 
-{% block content %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/topic.css' %}" />
+{% endblock stylesheet %}
 
-  <button class="btn btn-light mb-3 border">
-    <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
-  </button>
+{% block navbarlogo %}
+  <img
+    src="{% static 'img/logo-light.svg' %}"
+    class="d-inline-block align-top"
+    alt="Logo"
+  />
+{% endblock navbarlogo %}
 
-  {% for entry in entries %}
-    <div class="card mb-3">
-      <h4 class="card-header">
-        {{ entry.date_added|date:'M d, Y H:i' }} GMT 
-        <small class=""><a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a></small>
-      </h4>
-      <div class="card-body">
-        {{ entry.text|linebreaks }}
-      </div>
+{% block navbarnewbtn %}
+  <li class="nav-item">
+    <a class="nav-link new-btn" href="{% url 'learning_logs:topics' %}">
+      All Topics
+    </a>
+  </li>
+{% endblock navbarnewbtn %}
+
+{% block page_content %}
+
+  <div class="topics_banner">
+    <div class="topics_header">
+      <h2>{{ topic }}</h2>
+      <a href="{% url 'learning_logs:new_entry' topic.id %}">
+        <span>Add New Entry</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
+          <path d="M0 64C0 28.65 28.65 0 64 0H224V128C224 145.7 238.3 160 256 160H384V198.6C310.1 219.5 256 287.4 256 368C256 427.1 285.1 479.3 329.7 511.3C326.6 511.7 323.3 512 320 512H64C28.65 512 0 483.3 0 448V64zM256 128V0L384 128H256zM288 368C288 288.5 352.5 224 432 224C511.5 224 576 288.5 576 368C576 447.5 511.5 512 432 512C352.5 512 288 447.5 288 368zM448 303.1C448 295.2 440.8 287.1 432 287.1C423.2 287.1 416 295.2 416 303.1V351.1H368C359.2 351.1 352 359.2 352 367.1C352 376.8 359.2 383.1 368 383.1H416V431.1C416 440.8 423.2 447.1 432 447.1C440.8 447.1 448 440.8 448 431.1V383.1H496C504.8 383.1 512 376.8 512 367.1C512 359.2 504.8 351.1 496 351.1H448V303.1z"/>
+        </svg>
+      </a>
     </div>
-  {% empty %}
-    <p>There are no entries for this topic yet.</p>
-  {% endfor %}
 
+    <div class="topics_body">
+      {% for entry in entries %}
+        <div class="card">
+          <div class="card-header">
+            <h6>{{ entry.date_added|date:'M d, Y H:i' }} IST</h6>
+            <a href="{% url 'learning_logs:edit_entry' entry.id %}">
+              <span>Edit Entry</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                <path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="card-body">
+            {{ entry.text|linebreaks }}
+          </div>
+        </div>
+      {% empty %}
+        <img src="{% static 'img/empty-folder.svg' %}" class="d-block align-top" alt="Empty"/>
+        <span class="empty">There are no entries for this topic yet.</span>
+      {% endfor %}
+    </div>
+  </div>
 
-{% endblock content %}
+  <div class="bg-pattern"></div>
+
+{% endblock page_content %}
