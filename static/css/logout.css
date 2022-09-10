@@ -1,0 +1,69 @@
+/* **************************** Logout Page **************************** */
+
+main {
+    margin: 6rem auto;
+    padding: 2rem;
+}
+
+div.authentication_form {
+    position: relative;
+    margin: 6rem auto;
+    margin-bottom: 0 !important;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    background: var(--primarywhite);
+}
+
+div.authentication_form img {
+    margin: 1rem auto;
+    width: 40rem;
+    height: auto;
+}
+
+div.authentication_form h2 {
+    margin: 1rem 0;
+    font: 450 4rem/1.2 var(--mainfont);
+    color: var(--primaryblack);
+    letter-spacing: -0.4px;
+    text-align: center;
+}
+
+div.authentication_form h2 span {
+    font-weight: 600;
+}
+
+div.authentication_form p {
+    margin: 0.5rem 0;
+    font: 450 3rem/1 var(--mainfont);
+    color: var(--primaryblack);
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+
+/* **************************** Responsive Medias **************************** */
+
+@media (max-width: 576px) {
+    main {
+        padding: 2rem 1rem;
+    }
+    div.authentication_form {
+        margin: 7rem auto;
+        padding: 2rem 0;
+    }
+    div.authentication_form img {
+        width: 80%;
+    }
+    div.authentication_form h2 {
+        font-size: 3.5rem;
+    }
+    div.authentication_form p {
+        font-size: 2.5rem;
+    }
+}
+
+/* ******************************* Styles End ******************************* */
