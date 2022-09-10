@@ -1,72 +1,93 @@
+{% load static %}
 {% load bootstrap4 %}
 
-<!doctype html>
-<html lang="en>">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit="no">
-  <title>Learning Log</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="theme-color" content="#ffd600" />
+	<meta name="msapplication-navbutton-color" content="#ffd600" />
 
-  {% bootstrap_css %}
-  {% bootstrap_javascript jquery='full' %}
+	<title>{% block title %}{% endblock title %}</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.svg' %}"/>
 
+	{% bootstrap_css %}
+	{% bootstrap_javascript jquery='full' %}
+
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+	{% block stylesheet %}{% endblock stylesheet %}
+
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelector(".preloader").style.cssText = `opacity: 0; visibility: hidden;`;
+    })
+  </script>
 </head>
+
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+	<div class="preloader">
+		<div class="loader">
+			<div class="loader-inner">
+				<img src="{% static 'img/favicon.svg' %}"/>
+			</div>
+		</div>
+	</div>
 
-    <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
-      Learning Log
-    </a>
+	<header>
+		<nav class="navbar navbar-expand-sm container">
+			<a class="navbar-brand" href="{% url 'learning_logs:index' %}">
+				{% block navbarlogo %}{% endblock navbarlogo %}
+			</a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'learning_logs:topics' %}">
-            Topics
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-          <li class="nav-item">
-            <span class="navbar-text">
-              Hello, {{ user.username }}.
-            </span>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:logout' %}">
-              Log out
-            </a>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:register' %}">
-              Register
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:login' %}">
-              Log in
-            </a>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
-  
-  </nav>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 30 30">
+					<path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.5" d="M4 7h22M4 15h22M4 23h22"/>
+				</svg>
+			</button>
 
-  <main role="main" class="container">
-    <div class="pb-2 mb-2 border-bottom">
-      {% block page_header %}{% endblock page_header %}
-    </div>
-    <div class="pb-2 mb-2 border-bottom">
-      {% block content %}{% endblock content %}
-    </div>
-  </main>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav ml-auto">
+
+					{% if user.is_authenticated %}
+					<li class="nav-item">
+						<span class="navbar-text">
+							Hello, {{ user.username }}.
+							<svg width="208" height="11" viewBox="0 0 208 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.90002 10.1C72.2 10.6 135.6 10.7 198.9 10.5C200.8 10.5 200.8 7.49998 198.9 7.49998C135.6 7.79998 72.2 7.69998 8.90002 7.09998C6.90002 7.09998 6.90002 10.1 8.90002 10.1Z" fill="currentColor"/>
+								<path d="M1.90002 3.79999C69.9 3.79999 137.9 4.09999 205.9 4.89999C207.8 4.89999 207.8 1.89999 205.9 1.89999C137.9 1.19999 69.9 0.799988 1.90002 0.799988C-0.0999756 0.799988 -0.0999756 3.79999 1.90002 3.79999Z" fill="currentColor"/>
+							</svg>
+						</span>
+					</li>
+					{% block navbarnewbtn %}{% endblock navbarnewbtn %}
+					<li class="nav-item">
+						<a class="nav-link logout-btn" href="{% url 'users:logout' %}">
+							Log Out
+						</a>
+					</li>
+
+					{% else %}
+					<li class="nav-item">
+						{% block navbarbtntext %}{% endblock navbarbtntext %}
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main role="main">
+		<div class="container p-0">
+			{% block page_content %}{% endblock page_content %}
+		</div>
+		{% comment %}
+		<div class="container p-0">
+			{% block body_content %}{% endblock body_content %}
+		</div>
+		{% endcomment %}
+	</main>
 
 </body>
 
