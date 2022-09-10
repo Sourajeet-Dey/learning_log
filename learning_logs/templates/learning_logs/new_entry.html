@@ -1,56 +1,14 @@
 {% extends "learning_logs/base.html" %}
-{% load static %}
 
-{% block title %}New Entry | Topic: {{ topic }}{% endblock title %}
+{% block content %}
 
-{% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/new_entry.css' %}" />
-{% endblock stylesheet %}
+  <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
 
-{% block navbarlogo %}
-  <img
-    src="{% static 'img/logo-light.svg' %}"
-    class="d-inline-block align-top"
-    alt="Logo"
-  />
-{% endblock navbarlogo %}
+  <p>Add a new entry:</p>
+  <form action="{% url 'learning_logs:new_entry' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Add entry</button>
+  </form>
 
-{% block navbarnewbtn %}
-  <li class="nav-item">
-    <a class="nav-link new-btn" href="{% url 'learning_logs:topics' %}">
-      All Topics
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link new-btn" href="{% url 'learning_logs:topic' topic.id %}">
-      Entries
-    </a>
-  </li>
-{% endblock navbarnewbtn %}
-
-{% block page_content %}
-
-  <div class="topics_banner">
-    <form action="{% url 'learning_logs:new_entry' topic.id %}" method="post">
-
-      <div class="topics_header">
-        <h2><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h2>
-        <button name="submit">
-          <span>Add Entry</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
-            <path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z"/>
-          </svg>
-        </button>
-      </div>
-
-      <p>Add a new entry for <span>{{ topic }}</span> below:</p>
-
-      {% csrf_token %}
-      {{ form.as_p }}
-
-    </form>
-  </div>
-
-  <div class="bg-pattern"></div>
-
-{% endblock page_content %}
+{% endblock content %}

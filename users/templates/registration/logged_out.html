@@ -1,36 +1,7 @@
 {% extends "learning_logs/base.html" %}
-{% load static %}
 
-{% block title %}Thank You! | Learning Log{% endblock title %}
+{% block content %}
 
-{% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/logout.css' %}" />
-{% endblock stylesheet %}
+  <p>You have been logged out. Thank you for visiting!</p>
 
-{% block navbarlogo %}
-  <img
-    src="{% static 'img/logo-light.svg' %}"
-    class="d-inline-block align-top"
-    alt="Logo"
-  />
-{% endblock navbarlogo %}
-
-{% block navbarbtntext %}
-  <a class="nav-link" href="{% url 'learning_logs:index' %}">
-    Home
-  </a>
-{% endblock navbarbtntext %}
-
-{% block page_content %}
-
-  <div class="authentication_form">
-    <img
-      src="{% static 'img/log-out.svg' %}"
-      class="d-inline-block align-top"
-      alt="Log Out"
-    />
-    <h2>You have been <span>Logged Out</span>.</h2>
-    <p>Thank you for visiting!</p>
-  </div>
-
-{% endblock page_content %}
+{% endblock content %}
